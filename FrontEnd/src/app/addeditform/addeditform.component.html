@@ -1,0 +1,25 @@
+<div mat-dialog-title>
+  <h1>Account Form</h1>
+</div>
+<form [formGroup]="accountForm" (ngSubmit)="onFormSubmit()">
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput type="text" formControlName="username">
+  </mat-form-field><br>
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password">
+  </mat-form-field><br>
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" formControlName="email">
+  </mat-form-field><br>
+
+</div>
+
+<div mat-dialog-actions class="center">
+  <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+  <button mat-raised-button color="green" type="submit">{{ data? 'Update': 'Register' }}</button>
+</div>
+</form>

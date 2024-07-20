@@ -1,0 +1,19 @@
+version: '1'
+services:
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: shopforhome
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+  angular-app:
+    image: angular-app
+    ports:
+      - "4200:4200"
+  springboot-app:
+    image: springboot-app
+    ports:
+      - "8080:8080"

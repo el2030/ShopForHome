@@ -1,0 +1,61 @@
+<mat-toolbar>
+    <!--  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">-->
+    <!--    <mat-icon>menu</mat-icon>-->
+    <!--  </button>-->
+    <!--  <span>My App</span>-->
+
+    <a mat-button routerLink="sofas">Sofas & Seating</a>
+    <a mat-button routerLink="decor">Home Decor</a>
+    <a mat-button routerLink="furnishing">Furnishings</a>
+    <div *ngIf="localStorage.getItem('username')==='no'; else logout">
+      <a mat-button routerLink="login">Log In</a>
+    </div>
+    <a mat-raised-button routerLink="cart">Cart</a>
+    <!--    <a mat-button routerLink="signup">Sign Up Now</a>-->
+    <!--    <a mat-button routerLink="admin">Admin</a>-->
+    <a mat-raised-button routerLink="admin1">ADMIN</a>
+    <a mat-button routerLink="logout">Log Out</a>
+    <button mat-raised-button (click)="addEditForm()">
+      ADD ACCOUNT
+    </button>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon [matBadge]="itemsQuantity" [matBadgeHidden]="!itemsQuantity" matBadgeColor="warn">shopping_cart</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <div class="p-3 divide-y divide-solid">
+        <div class="pb-3 flex justify-between">
+          <span class="mr-16">{{ itemsQuantity }} </span>
+          <a routerLink="cart"> View Cart</a>
+        </div>
+        <div *ngIf="cart.items.length" class="py-3">
+          <div *ngFor="let item of cart.items" class="flex justify-between font-light mb-2">
+            {{ item.name }} x {{item.quantity}}
+            <span class="font-bold">{{item.price | currency}}</span>
+          </div>
+        </div>
+
+        <div class="flex justify-between py-3 font-light">
+          Total:
+          <span class="font-bold">{{getTotal(cart.items)|currency}}</span>
+        </div>
+        <div class="pt-3 flex justify-between">
+          <button (click)="onClearCart()" class="bg-rose-600 text-white rounded-full w-9 h-9">
+            <mat-icon>remove_shopping_cart</mat-icon>
+          </button>
+          <button
+            routerLink="cart"
+            class="bg-green-600 text-white rounded-full w-9 h-9">
+            <mat-icon>shopping_cart</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-menu>
+
+    <ng-template #logout>
+      <a mat-button>{{localStorage.getItem('username')}}</a>
+    </ng-template>
+
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+

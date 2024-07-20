@@ -1,0 +1,14 @@
+<div *ngIf="localStorage.getItem('username')!=='no'; else loginForm">
+  <h2>Welcome {{localStorage.getItem('username')}}</h2>
+
+</div>
+<ng-template #loginForm>
+<h2>Log In</h2>
+<form  (submit)="login()">
+  <mat-label>Username</mat-label>
+  <input type="text" [(ngModel)]="userName" name="username"><br><br>
+  <label>Password</label>
+  <input type="password" [(ngModel)]="password" name="password"><br>
+  <button type="submit">Log in</button>
+</form>
+</ng-template>

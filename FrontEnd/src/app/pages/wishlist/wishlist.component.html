@@ -1,0 +1,54 @@
+<mat-card class="max-w-7xl mx-auto" *ngIf="wishlist.items.length">
+  <table mat-table [dataSource]="datasource" class="mat-elevation-z8 w-full">
+    <ng-container matColumnDef="product">
+      <th mat-header-cell *matHeaderCellDef>Product</th>
+      <td mat-cell *matCellDef="let element">
+        <img src="{{element.product}}" alt = "product" class="w-[100px] my-5"/>
+
+      </td>
+      <td mat-footer-cell *matFooterCellDef>
+        <button mat-raised-button routerLink="/home">Continue shopping</button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">
+        {{element.name}}
+      </td>
+      <td mat-footer-cell *matFooterCellDef></td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Price</th>
+      <td mat-cell *matCellDef="let element">
+        {{element.price | currency}}
+      </td>
+      <td mat-footer-cell *matFooterCellDef>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>
+        <button (click)="onClearWishList()" mat-raised-button color="warn" class="float-right">
+          Clear All
+        </button>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <button (click)="onRemoveFromWishList(element)" mat-mini-fab color="warn" class="float-right">
+          <mat-icon>close</mat-icon>
+        </button>
+      </td>
+      <td mat-footer-cell *matFooterCellDef>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+    <tr mat-header-row *matRowDef="let row; columns: displayColumns"></tr>
+    <tr mat-footer-row *matFooterRowDef="displayColumns"></tr>
+  </table>
+</mat-card>
+<mat-card *ngIf="!wishlist.items.length">
+  <p>
+    Your cart is empty.
+    <button mat-raised-button routerLink="/home">Start Shopping</button>
+  </p>
+</mat-card>

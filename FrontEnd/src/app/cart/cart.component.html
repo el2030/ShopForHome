@@ -1,0 +1,26 @@
+<div>
+  <button type="button" (click)="showCart()">Show Cart</button>
+</div>
+<div class="container" *ngIf="products.length > 0" >
+  <h2>Cart Content</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Category</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{product.name}}</td>
+      <td>{{ product.category }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{product.quantity}}</td>
+<!--      <td><button type="button" (click)="deleteUser(user.id)">Delete</button></td>-->
+<!--      <td><button type="button">Edit</button></td>-->
+    </tr>
+    </tbody>
+  </table>
+</div>

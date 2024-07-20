@@ -1,0 +1,33 @@
+<div mat-dialog-title>
+  <h1>Product Form</h1>
+</div>
+<form [formGroup]="productForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" formControlName="name">
+    </mat-form-field><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <input matInput type="text" formControlName="category">
+    </mat-form-field><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input matInput type="text" formControlName="price">
+    </mat-form-field><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Stock</mat-label>
+      <input matInput type="text" formControlName="stock">
+    </mat-form-field><br>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input matInput type="text" formControlName="description">
+    </mat-form-field><br>
+
+  </div>
+
+  <div mat-dialog-actions class="center">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+    <button mat-raised-button color="green" type="submit">{{ data? 'Update': 'Add' }}</button>
+  </div>
+</form>

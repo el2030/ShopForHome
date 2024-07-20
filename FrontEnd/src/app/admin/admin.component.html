@@ -1,0 +1,27 @@
+<div>
+  <button type="button" (click)="getUsers()">Show All Users</button>
+  <button type="button" (click)="createAccount()">Create Account</button>
+</div>
+  <div *ngIf="users.length > 0" >
+  <h2>User List</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Role</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{user.role}}</td>
+      <td><button type="button" (click)="deleteUser(user.id)">Delete</button></td>
+      <td><button type="button" (click)="editUser(user.id)">Edit</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

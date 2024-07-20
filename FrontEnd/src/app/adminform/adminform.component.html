@@ -1,0 +1,19 @@
+<h2>Create / Edit Accounts</h2>
+<form (submit)="submitCreate()">
+  <label>{{id}}</label>
+  <label>Username</label>
+  <input type="text" [(ngModel)]="userName" name="username"><br>
+  <label>Password</label>
+  <input type="password" [(ngModel)]="password" name="password"><br>
+  <label>Email</label><br>
+  <input type="email" [(ngModel)]="email" name="email"><br>
+  <label>Role</label><br>
+  <input type="radio" [(ngModel)]="role" value="user" name="role"> User<br>
+  <input type="radio" [(ngModel)]="role" value="admin" name="role"> Admin<br>
+<!--  <div *ngIf="id === 0; else edit">-->
+    <button type="submit">Submit</button>
+<!--  </div>-->
+  <ng-template #edit>
+    <button type="submit">Edit</button>
+  </ng-template>
+</form>
