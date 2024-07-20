@@ -1,5 +1,5 @@
 ## ShopForHome
-An online shopping website
+An ecommerce website for furnitures and home decor, with user and admin functions. 
 
 
 <br/>
