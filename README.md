@@ -16,7 +16,7 @@ An ecommerce website for furnitures and home decor, with user and admin function
 | [Docker Desktop](https://www.docker.com/products/docker-desktop/)                       | Manage Docker Pods |               |
 
 ## How to spin up via docker-compose
--'cd' into 'ShopBack' directory and run 'mvn spring-boot:build-image -DskipTests' <br/ >
+-'cd' into 'ShopBack' directory and run 'mvn spring-boot:build-image -DskipTests'
 -'cd' into 'FrontEnd' directory and run 'docker build -t angular-app .'
 -'cd' into root directory of the project where the compose.yml and run 'docker compose up'.
 
